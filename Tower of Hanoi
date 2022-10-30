@@ -1,0 +1,19 @@
+class Main {
+  //start, aux, goal so that we can visualize
+  //n = disk number
+  public static void recHanoi(int n,String start, String aux, String goal){
+    //disk number must be something other than 0 
+    if(n==0){
+      return;
+      //we are moving the n-1 disks from start to aux
+    }
+    //first recursive 
+    recHanoi((n-1), start, goal, aux);
+    System.out.println("moving disk "+ n + "from "+ start +"to" + goal);
+    //again to make sure they are moving 
+    recHanoi((n-1), aux, start, goal);
+  }
+  public static void main(String[] args) {
+    recHanoi(3,"tower A", "tower B", "tower C");
+  }
+}
