@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Main {
+  
+  public static long fact(int n){
+    //exception checking to have the n index not be 0
+    if(n==0){
+      return 1;
+    }
+    else{
+      return(n*fact(n-1));
+    }
+  }
+  //fibonacci sequence is (1,1,2,3,5,8,13,21,34...)
+  //works by adding the previous 2 terms together to get the 3rd.
+  //however it always starts with a 1, 1 
+  public static long fibo(int n){
+    //n is index
+    //mkaing sure we dont lookup a redundant index as it is known 0 and 1 indexes are 1 and 1
+    if(n==0||n==1){
+      return 1;
+    //otherwise do math (n-1) and not n because Coding indexes start at 0.
+    }else{
+      return (fibo(n-1)+fibo(n-2));
+    }
+  }
+  public static long sumFun(int n){
+    if(n==0){
+      return 1;
+
+    }else{
+      return(n+sumFun(n-1));
+    }
+  }
+  public static void main(String[] args) {
+    int x =0;
+    Scanner scan = new Scanner(System.in);
+    System.out.println("enter an integer: ");
+    x= scan.nextInt();
+    
+  System.out.println("the factorial of " + x + " is: "+ fact(x));
+  System.out.println("the fibonacci number for index number" + x + " is: "+ fibo(x));
+  System.out.println("the sum of the numbers between 1 to " + x + "is:" + sumFun(x));
+  }
+}
