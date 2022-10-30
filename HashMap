@@ -1,0 +1,64 @@
+import java.util.*;
+  class Main {
+    public static void main(String[] args) {
+      System.out.println("Hello world!");
+      Map<String,String> mapObj = new HashMap<>();
+      mapObj.put("a","New York");
+      mapObj.put("b","New Jersey");
+      mapObj.put("c","New hampshire");
+      mapObj.put("d", "New Mexico");
+    
+      if(mapObj.containsKey("a")){
+        mapObj.put("e","Washington");
+        }else{
+          mapObj.put("a","Washington");
+      }
+      
+      //you cannot duplicate keys but you can duplucate values using different keys
+      mapObj.put("f","New Hampshire");
+       mapObj.replace("f","Texas");
+      
+      //changing from new mexico to new hampshire
+      mapObj.replace("d","New Mexico","New Hampshire");
+      
+      System.out.println("the map looks like:" + mapObj);
+      System.out.println("the valye at key b is: "+ mapObj.get("b"));
+      //entrySet uses key and not index eg:a,b,c,d
+      System.out.println("the map using the entrySet(): "+ mapObj.entrySet());
+      System.out.println("keySet(): " + mapObj.keySet());
+
+      System.out.println("the used values stored in the map: " + mapObj.values());
+   
+      //enhanced for loop on map object
+      //syntax is different
+      System.out.println("***************");
+      System.out.println(" the map : " + mapObj );
+    
+      System.out.println("the keys used in the map:");
+      for(String s: mapObj.keySet()){
+        System.out.print( s);
+      }
+    
+      System.out.println();
+    
+      System.out.println("the valyes stored in the map:");
+      for(String s:mapObj.values()){
+        System.out.print( s);
+      }
+    
+      System.out.println();
+    
+      for(Map.Entry<String,String> obj: mapObj.entrySet()){
+        System.out.println("the key is: " + obj.getKey() + ", and the corresponding value is: " + obj.getValue());
+      }
+    
+      //iterator using map
+      //have to use entrySet to iterate the (key,value) set operation
+      Iterator<Map.Entry<String,String>> it = mapObj.entrySet().iterator();
+      while(it.hasNext()){
+      Map.Entry<String,String> obj= it.next();
+      System.out.println(obj.getKey()  + ", " + obj.getValue());
+
+      } 
+    }
+  }
